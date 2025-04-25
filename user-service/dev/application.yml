@@ -28,3 +28,13 @@ jwt:
   secret: musicGameSecretKey123456789012345678901234567890AB
   expiration: 86400000  # 24 saat (milisaniye)
   refresh-expiration: 604800000  # 7 gün (milisaniye)
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
