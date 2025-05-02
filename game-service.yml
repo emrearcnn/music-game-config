@@ -1,0 +1,42 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: game-service
+  datasource:
+    url: jdbc:postgresql://postgres:5432/music_game_games
+    username: postgres
+    password: 9991509
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+  redis:
+    host: redis
+    port: 6379
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+# API Gateway ve User Service etkileşimi için
+api:
+  user-service: http://user-service/api/users
+
+# Actuator endpoint'leri için yapılandırma
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
